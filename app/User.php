@@ -10,6 +10,8 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+
+
     /**
      * The attributes that are mass assignable.
      *
@@ -28,11 +30,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function questions(){
+    public function questions()
+    {
         return $this->hasMany(Question::class);
-    }
-    public function setTitleAttribute($value){
-        $this->attributes['title'] = $value;
-        $this->attributes['slug'] = str_slug($value);
     }
 }
